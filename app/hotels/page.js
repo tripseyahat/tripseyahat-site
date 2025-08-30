@@ -31,20 +31,15 @@ export default function HotelsPage() {
           <p>₺1.700 / gece</p>
           <button>Detay / Rezervasyon</button>
         </div>
-      </div>export default function HotelsPage() {
-  return (
-    <main className="container">
-      <h1>Oteller</h1>
-      <div className="hotel-grid">
-        <div className="hotel-card">
-          <img src="/istanbul-hotel.jpg" alt="İstanbul City Hotel" />
-          <h2>İstanbul City Hotel</h2>
-          <p>İstanbul</p>
-          <p>₺1.450 / gece</p>
-          <button>Detay / Rezervasyon</button>
-        </div>
-        {/* Yeni otel eklemek için buraya kopyala-yapıştır */}
-      </div>
+      </div
+      </div><div className="hotel-card">
+  <img src="/images/hotel3.jpg" alt="Kapadokya Cave Suites" />
+  <h2>Kapadokya Cave Suites</h2>
+  <p>Kapatokya</p>
+  <p>₺1.950 / gece</p>
+  <button>Detay / Rezervasyon</button>
+</div>
+
     </main>
   );
 }
