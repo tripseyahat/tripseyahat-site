@@ -1,144 +1,36 @@
-/* --- uçuş arama formu için stiller --- */
-.form {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: 1fr 1fr 1fr auto;
-  align-items: end;
-  margin: 20px 0 28px;
-}
-@media (max-width: 720px) {
-  .form { grid-template-columns: 1fr; }
-}
-.field label {
-  display: block;
-  font-size: 0.9rem;
-  color: #4b5563;
-  margin-bottom: 6px;
-}
-.input, .date {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.btn.primary {
-  background:#111827;
-  color:#fff;
-  border-radius:8px;
-  padding:10px 16px;
-  text-decoration:none;
-  font-weight:600;
-}
-.btn.primary:hover { background:#000; }
+/* Basit reset */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color: #0f172a; background: #ffffff; line-height: 1.5; }
+a { color: inherit; }
 
-/* arama sonuçları */
-.results { display: grid; gap: 12px; }
-.result {
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 14px;
-}
-.result .line { display:flex; justify-content:space-between; align-items:center; }
-.result h3 { margin:0; font-size:1.05rem; }
-.result p  { margin:0; color:#6b7280; }
-.price { font-weight:700; }
-)
-/* Basit düzen ve tipografi */
-body {
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  line-height: 1.6;
-  color: #111;
-}
+/* Konteyner */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
 
-.container {
-  max-width: 960px;
-  margin: 24px auto;
-  padding: 0 16px;
-}
+/* Header */
+.site-header { border-bottom: 1px solid #e5e7eb; background: #ffffff; position: sticky; top: 0; z-index: 20; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-weight: 700; text-decoration: none; }
 
-/* Üst menü */
-.site-header {
-  border-bottom: 1px solid #eee;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
+/* Menü */
+.main-nav a { margin-left: 14px; text-decoration: none; color: #0f172a; }
+.main-nav a:hover { color: #0ea5e9; }
 
-.site-header .container {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 12px 16px;
-}
+/* Ana içerik */
+main.container { padding: 24px 16px; }
 
-.logo {
-  font-weight: 700;
-  text-decoration: none;
-  color: #111;
-}
+/* Footer */
+.site-footer { border-top: 1px solid #e5e7eb; margin-top: 48px; padding: 20px 0; color: #475569; }
 
-.nav a {
-  margin-right: 16px;
-  text-decoration: none;
-  color: #111;
-}
-.nav a:hover { text-decoration: underline; }
+/* Kart grid */
+.grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 16px; }
+.card { display: block; padding: 16px 20px; border: 1px solid #e5e7eb; border-radius: 12px; text-decoration: none; background: #fff; }
+.card:hover { border-color: #0ea5e9; transform: translateY(-1px); transition: all .15s ease; }
 
-/* Alt bilgi */
-.site-footer {
-  border-top: 1px solid #eee;
-  margin-top: 48px;
-  padding: 16px 0;
-  color: #555;
-  font-size: 14px;
-}
+/* Basit form */
+.form-inline { display: grid; grid-template-columns: 1fr 1fr 1fr auto; gap: 10px; align-items: center; margin-top: 12px; }
+input, select, button { padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px; }
+button { background: #0ea5e9; color: #fff; cursor: pointer; border-color: transparent; }
+button:hover { background: #0284c7; }
 
-/* Kartlar (Ana sayfadaki kutular) */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.card {
-  display: block;
-  padding: 16px;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #111;
-  transition: box-shadow .15s ease, transform .15s ease;
-}
-
-.card:hover {
-  box-shadow: 0 6px 18px rgba(0,0,0,.07);
-  transform: translateY(-2px);
-}
-
-/* Basit form stilleri (İletişim) */
-label { display: block; margin: 12px 0 6px; font-weight: 600; }
-input, textarea, select {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
-}
-button {
-  margin-top: 12px;
-  padding: 10px 14px;
-  background: #111;
-  color: #fff;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
-}
-button:hover { background: #000; }
-html {
-  scroll-behavior: smooth;
-}
 
 
