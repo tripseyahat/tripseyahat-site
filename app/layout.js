@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata = {
   title: 'Trip Seyahat',
-  description: 'Uygun uçuş ve tatil önerileri',
+  description: 'Uygun uçuş ve tatil planları',
 };
 
 export default function RootLayout({ children }) {
