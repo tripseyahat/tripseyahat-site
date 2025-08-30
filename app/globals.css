@@ -137,4 +137,8 @@ button {
   cursor: pointer;
 }
 button:hover { background: #000; }
+html {
+  scroll-behavior: smooth;
+}
+
 
