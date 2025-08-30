@@ -1,0 +1,45 @@
+/* --- uçuş arama formu için stiller --- */
+.form {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  align-items: end;
+  margin: 20px 0 28px;
+}
+@media (max-width: 720px) {
+  .form { grid-template-columns: 1fr; }
+}
+.field label {
+  display: block;
+  font-size: 0.9rem;
+  color: #4b5563;
+  margin-bottom: 6px;
+}
+.input, .date {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.btn.primary {
+  background:#111827;
+  color:#fff;
+  border-radius:8px;
+  padding:10px 16px;
+  text-decoration:none;
+  font-weight:600;
+}
+.btn.primary:hover { background:#000; }
+
+/* arama sonuçları */
+.results { display: grid; gap: 12px; }
+.result {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px;
+}
+.result .line { display:flex; justify-content:space-between; align-items:center; }
+.result h3 { margin:0; font-size:1.05rem; }
+.result p  { margin:0; color:#6b7280; }
+.price { font-weight:700; }
