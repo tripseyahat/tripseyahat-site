@@ -31,6 +31,3 @@ main.container { padding: 24px 16px; }
 input, select, button { padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 8px; font-size: 14px; }
 button { background: #0ea5e9; color: #fff; cursor: pointer; border-color: transparent; }
 button:hover { background: #0284c7; }
-
-
-
