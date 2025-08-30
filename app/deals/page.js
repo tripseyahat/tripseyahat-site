@@ -27,7 +27,13 @@ export default function DealsPage() {
           <p>₺3.299</p>
           <button>Detayları Gör</button>
         </div>
-      </div>
+      </div><div className="deal-card">
+  <h2>İzmir ⇄ Roma</h2>
+  <p>3 gece konaklama + uçuş</p>
+  <p>₺4.200</p>
+  <button>Detayları Gör</button>
+</div>
+
     </main>
   );
 }
