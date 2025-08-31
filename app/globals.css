@@ -1,232 +1,193 @@
-/* =========================================================
-   TripSeyahat – Global CSS (Complete)
-   Bu dosya mobil-öncelikli (mobile-first) bir tasarım içerir.
-   Header, footer, grid, kart, form, buton, ana sayfa bileşenleri,
-   hotels/deals/flight sayfaları için stiller ve yardımcı sınıflar.
-   ========================================================= */
+/* =========================
+   TripSeyahat - Global CSS
+   ========================= */
 
-/* ---------- Temel değişkenler ---------- */
-:root{
-  --blue: #1A73E8;
-  --navy: #0B1437;
-  --red:  #FF0000;
-  --maroon: #800020;
-  --teal: #2DD4BF;
-  --bg:   #F7F8FB;
-  --text: #0B1437;
-  --muted:#667085;
-  --card: #FFFFFF;
-  --border:#EEF0F4;
-  --radius: 12px;
-  --shadow: 0 6px 16px rgba(0,0,0,.06);
-}
+/* ---- Reset & Base ---- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
 
-/* ---------- Reset / Base ---------- */
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Inter, Arial, sans-serif;
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.5;
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color: #0b1437;
+  background: #f7f8fb;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-img{max-width:100%;display:block}
-a{color:inherit}
 
-/* ---------- Yardımcı sınıflar ---------- */
-.container{max-width:1200px;margin:0 auto;padding:0 16px}
-.section{margin:32px 0}
-.title{font-size:22px;font-weight:800;margin:0 0 12px}
-.subtitle{font-size:16px;color:#555;margin:0}
+img, svg { display:block; max-width:100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+input, select { font: inherit; }
 
-.grid{display:grid;gap:16px}
-.grid-1{grid-template-columns:1fr}
-.grid-2{grid-template-columns:repeat(2,1fr)}
-.grid-3{grid-template-columns:repeat(3,1fr)}
-@media (min-width:640px){ .sm-grid-2{grid-template-columns:repeat(2,1fr)} }
-@media (min-width:1024px){ .lg-grid-3{grid-template-columns:repeat(3,1fr)} }
-
-/* ---------- Kart / buton / form ---------- */
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  padding:16px;
-  box-shadow: var(--shadow);
+/* ---- Container ---- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.btn{
-  display:inline-block;
-  background:var(--blue);
-  color:#fff;
-  padding:10px 14px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:700;
-  border:none;
-  cursor:pointer;
+/* =================================
+   Header / Footer (Layout genel)
+   ================================= */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky; top: 0; z-index: 20;
 }
-.btn:hover{filter:brightness(.95)}
-.btn.tiny{padding:6px 10px;border-radius:999px;font-size:12px}
-.btn.ghost{background:#f1f5f9;color:#111}
 
-.input,.select, input[type="date"], input[type="number"], input[type="text"]{
-  width:100%;
-  padding:10px 12px;
-  border:1px solid #ddd;
-  border-radius:10px;
+.site-header .container {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .75rem 1rem;
+}
+
+.logo { display:flex; align-items:center; gap:.5rem; }
+.logo img { height: 40px; width:auto; }
+
+.site-header nav {
+  margin-left: auto;
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+
+.site-header nav a {
+  padding: .5rem .75rem; border-radius: .6rem;
+  color:#0b1437; font-weight:600;
+}
+.site-header nav a:hover { background:#f1f5ff; }
+
+.site-footer {
+  margin-top: 2rem;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+}
+.site-footer .container { padding: 1.25rem 1rem; color:#475569; }
+
+/* ==========================
+   Home: Tabbar & Forms
+   ========================== */
+.home { margin-top: 1rem; }
+
+/* -- Tabs -- */
+.tabbar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .6rem;
+  margin-bottom: 1rem;
+}
+.tab {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.25rem;
+  padding:.8rem .6rem;
+  border:1px solid #e5e7eb; border-radius:.9rem;
   background:#fff;
-  outline:none;
+  font-weight:700;
+  transition:.15s ease;
 }
-label{display:block;font-size:13px;color:#475467;margin:0 0 6px}
+.tab .tab-icon { font-size:22px; line-height:1; }
+.tab .tab-label { font-size:.95rem; }
+.tab:hover { box-shadow: 0 4px 12px rgba(0,0,0,.06); }
+.tab.active {
+  background: linear-gradient(180deg,#fff7cc,#ffe38b);
+  border-color:#ffd54a;
+  box-shadow: 0 6px 16px rgba(255,213,74,.28);
+}
+.tab:focus { outline: 2px solid #2563eb; outline-offset: 2px; }
 
-/* ---------- Header / Nav / Footer ---------- */
-.site-header{
-  position:sticky;top:0;z-index:50;
-  background:#ffffffcc;
-  backdrop-filter: blur(8px);
-  border-bottom:1px solid var(--border);
+/* -- Card & Grid -- */
+.card {
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
 }
-.header-inner{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  padding:10px 0;
+.grid {
+  display:grid; gap:.8rem;
+  grid-template-columns: 1fr;
 }
-.logo-wrap{display:inline-flex;align-items:center;gap:8px}
-.main-nav{display:flex;gap:12px;flex-wrap:wrap}
-.main-nav a{
-  text-decoration:none;color:var(--navy);font-weight:600;
-  padding:6px 10px;border-radius:8px;
-}
-.main-nav a:hover{background:#F2F4F7}
-
-.site-footer{margin-top:40px;border-top:1px solid var(--border);background:#fff}
-.footer-inner{
-  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  padding:16px 0;color:#475467;font-size:14px;
-}
-
-@media (max-width:640px){
-  .main-nav{gap:8px}
-  .main-nav a{padding:6px 8px}
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ---------- Ana sayfa (mobile-first app-like) ---------- */
-.home{padding-bottom:88px;max-width:560px;margin:0 auto}
-.topbar{
-  background:linear-gradient(180deg, #2D57FF 0%, #3F68FF 100%);
-  padding:20px 16px 12px;border-bottom-left-radius:18px;border-bottom-right-radius:18px;
+/* -- Form fields -- */
+.field label {
+  display:block;
+  font-size:.9rem;
+  color:#374151;
+  margin-bottom:.35rem;
 }
-.search{
-  display:flex;align-items:center;background:#fff;border-radius:28px;
-  padding:10px 14px;box-shadow:0 6px 16px rgba(0,0,0,.12);
+.field input,
+.field select {
+  width:100%;
+  height:44px;
+  border:1px solid #d1d5db;
+  border-radius:.65rem;
+  padding:0 .75rem;
+  background:#fff;
 }
-.search .icon{margin-right:8px;font-size:18px}
-.search input{border:none;outline:none;width:100%;font-size:16px;background:transparent}
-
-.chips{display:flex;gap:8px;margin-top:12px;overflow-x:auto;padding-bottom:4px}
-.chip{
-  background:#e8edff;color:#1737d3;border:none;padding:8px 12px;border-radius:999px;
-  font-weight:700;white-space:nowrap
-}
-
-.quick-grid{
-  margin:14px 16px 0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px 6px;
-}
-.q-item{text-decoration:none;color:inherit;text-align:center}
-.q-icon{
-  position:relative;width:62px;height:62px;margin:0 auto 6px;border-radius:50%;
-  background:#EEF2FF;display:grid;place-items:center;font-size:26px;color:#2D57FF;
-}
-.q-icon .badge{
-  position:absolute;top:-6px;left:-6px;background:#FF3B3B;color:#fff;font-size:10px;
-  padding:2px 6px;border-radius:999px;
-}
-.q-text{font-weight:800;font-size:14px;line-height:1.2}
-.q-text .muted{color:var(--muted);font-weight:500}
-
-.block{margin:18px 16px 0}
-.block-title{font-size:16px;font-weight:800;margin:0 0 10px}
-
-.recent{display:grid;grid-template-columns:1.7fr 1fr;gap:10px}
-.recent-card,.hotel-mini{
-  background:var(--card);border-radius:16px;padding:16px;box-shadow:var(--shadow)
-}
-.recent-card{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:center}
-.recent-icon{font-size:22px}
-.recent-title{font-weight:900}
-.recent-sub{color:var(--muted);font-size:13px}
-
-.hotel-mini{display:grid;grid-template-columns:72px 1fr;gap:10px}
-.hotel-thumb{
-  width:72px;height:72px;border-radius:12px;
-  background:url('https://images.unsplash.com/photo-1559599238-7aa3e3e38a53?q=80&w=600&auto=format&fit=crop') center/cover no-repeat;
-}
-.hotel-name{font-weight:900}
-.hotel-sub{color:var(--muted);font-size:13px}
-
-.deal-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-.deal{
-  background:#fff;border-radius:16px;padding:14px;box-shadow:var(--shadow);text-align:center
-}
-.deal-emoji{font-size:24px}
-.deal-title{margin-top:6px;color:var(--muted);font-weight:600}
-.deal-discount{margin:4px 0 8px;font-size:20px;font-weight:900;color:#E11D48}
-
-.banner-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 16px}
-.banner,.banner.alt{
-  height:120px;border-radius:16px;display:grid;place-items:center;color:#fff;
-  font-weight:900;font-size:20px;box-shadow:0 10px 24px rgba(0,0,0,.12)
-}
-.banner{background:linear-gradient(135deg,#5B76FF,#3550FF)}
-.banner.alt{background:linear-gradient(135deg,#27C2A7,#14996E)}
-
-.tabbar{
-  position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #EDF0F7;
-  display:grid;grid-template-columns:repeat(4,1fr);height:64px;padding-bottom:env(safe-area-inset-bottom)
-}
-.tab{
-  background:none;border:none;display:grid;place-items:center;gap:2px;
-  color:var(--muted);font-size:12px;font-weight:800
-}
-.tab-emoji{font-size:18px}
-.tab.active{color:#2D57FF}
-
-/* ---------- Hotels sayfası ---------- */
-.hotel-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;margin-top:20px
-}
-.hotel-card{
-  border:1px solid #ddd;border-radius:10px;padding:16px;background:#fff;text-align:center;
-  box-shadow:var(--shadow)
-}
-.hotel-img{
-  width:100%;height:160px;object-fit:cover;border-radius:8px;margin-bottom:10px
-}
-.price{font-weight:800;margin:8px 0}
-
-/* ---------- Deals sayfası ---------- */
-.deals-grid{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;margin-top:20px
-}
-.deal-card{
-  border:1px solid #eaeaea;border-radius:10px;padding:16px;background:#fff;text-align:left;
-  box-shadow:var(--shadow)
+.field input:focus,
+.field select:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 1px;
 }
 
-/* ---------- Flights sayfası ---------- */
-/* (form, sonuç kartları genel .card/.grid ile uyumlu) */
+/* -- Radio / Checkbox rows -- */
+.radio-row,
+.opt-row {
+  display:flex; flex-wrap:wrap; gap:1rem;
+  margin-bottom:.75rem;
+}
+.radio-row label,
+.opt-row label {
+  display:flex; align-items:center; gap:.5rem;
+  color:#111827;
+}
 
-/* ---------- Utilities ---------- */
-.center{display:grid;place-items:center}
-.muted{color:var(--muted)}
-.hidden{display:none !important}
+/* -- CTA button -- */
+.cta {
+  width:100%; height:50px;
+  border:none; border-radius:.8rem;
+  background:#ffbf00; color:#0b1437;
+  font-weight:800; letter-spacing:.35px;
+  margin-top:.5rem;
+  box-shadow: 0 10px 20px rgba(255,191,0,.35);
+  transition: filter .15s ease, transform .05s ease;
+}
+.cta:hover { filter: brightness(.96); }
+.cta:active { transform: translateY(1px); }
 
-/* ---------- Scrollbar (opsiyonel) ---------- */
-::-webkit-scrollbar{height:10px;width:10px}
-::-webkit-scrollbar-thumb{background:#cfd6e4;border-radius:999px}
-::-webkit-scrollbar-track{background:transparent}
+/* ==========================
+   Cards / Lists (genel)
+   ========================== */
+.card-list {
+  display:grid; gap:1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .card-list { grid-template-columns: repeat(3, 1fr); }
+}
+
+.card-item {
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,.05);
+}
+.card-item .body { padding: 1rem; }
+.badge {
+  display:inline-block;
+  padding:.25rem .5rem; border-radius:.5rem;
+  font-size:.75rem; background:#eef2ff; color:#4338ca;
+}
+
+/* ==========================
+   Utilities
+   ========================== */
+.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mt-3{margin-top:1rem}
+.mb-1{margin-bottom:.25rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:1rem}
+.text-muted{color:#6b7280}
+.text-center{text-align:center}
