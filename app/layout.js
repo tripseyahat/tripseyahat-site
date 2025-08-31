@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+import "./globals.css";
 import "./globals.css";
 import Link from "next/link";
 
