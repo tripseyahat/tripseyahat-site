@@ -166,3 +166,25 @@ function TransferForm() {
     </form>
   );
 }
+
+export default function Home() {
+  return (
+    <div>
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div>
+          <h1>Uygun Uçak Biletleri</h1>
+          <p>En ucuz uçuşları ve fırsatları hemen bul!</p>
+          <button className="search-button">Bilet Ara</button>
+        </div>
+      </section>
+
+      {/* Arka plan altındaki normal içerik */}
+      <section className="container">
+        <h2>Kampanyalar</h2>
+        <p>Burada kampanya kartları olacak...</p>
+      </section>
+    </div>
+  );
+}
+
