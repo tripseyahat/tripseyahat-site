@@ -324,3 +324,16 @@ input, select { font: inherit; }
   .form-actions { grid-column: span 1; }
   .btn-primary { height: 48px; }
 }
+
+/* globals.css içine ekle */
+.hero-section {
+  background: url('/images/hero.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: 500px; /* istediğin yüksekliği ayarlayabilirsin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
